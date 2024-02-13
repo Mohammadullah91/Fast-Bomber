@@ -1,0 +1,28 @@
+<!-- Made by Siam - OTP Sender Tool -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Sender</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <label for="number">Number [11 digits]: </label>
+    <input type="text" id="number" pattern="[0-9]{11}" maxlength="11" required>
+    
+    <br>
+
+    <label for="amount">Amount [Up to 5000]: </label>
+    <input type="number" id="amount" min="1" max="5000" required>
+    
+    <br>
+
+    <button onclick="sendOtp()">Send OTP</button>
+
+    <div id="output"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
