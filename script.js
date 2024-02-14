@@ -9,7 +9,7 @@ $('#submit').click(() => {
     } else {
         let i = 0;
 
-        while (i < amount) {
+        const sendOtp = () => {
             const otpData = {
                 "msisdn": "88" + number,
                 "operator": "robi",
@@ -26,15 +26,22 @@ $('#submit').click(() => {
                 data: JSON.stringify(otpData)
             };
 
-            axios(otpConfig)
-                .then(function (response) {
-                    console.log('API Response:', JSON.stringify(response.data));
-                })
-                .catch(function (error) {
-                    console.error('API Error:', error);
-                });
+            return axios(otpConfig);
+        };
 
-            i++;
-        }
+        const sendAllOtps = async () => {
+            try {
+                while (i < amount) {
+                    await sendOtp();
+                    i++;
+                }
+                alert("OTP(s) successfully sent");
+            } catch (error) {
+                console.error('API Error:', error);
+                alert("Failed to send OTP(s)");
+            }
+        };
+
+        sendAllOtps();
     }
 });
