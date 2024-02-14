@@ -29,7 +29,6 @@ $('#submit').click(() => {
             axios(otpConfig)
                 .then(function (response) {
                     console.log('API Response:', JSON.stringify(response.data));
-                    // Removed extra increment i++;
                 })
                 .catch(function (error) {
                     console.error('API Error:', error);
